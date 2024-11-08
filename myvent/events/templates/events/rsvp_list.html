@@ -1,0 +1,15 @@
+<!-- templates/events/rsvp_list.html -->
+{% extends "base.html" %}
+{% block content %}
+  <div class="container mt-4">
+    <h2>RSVP List for {{ event.title }}</h2>
+    <ul class="list-group">
+      {% for rsvp in rsvps %}
+        <li class="list-group-item">
+          {{ rsvp.user.username }} - RSVP'd on {{ rsvp.rsvp_date }}
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'event-detail' event.pk %}" class="btn btn-secondary mt-2">Back to Event</a>
+  </div>
+{% endblock %}

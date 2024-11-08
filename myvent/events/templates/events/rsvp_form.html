@@ -1,0 +1,13 @@
+<!-- templates/events/rsvp_form.html -->
+{% extends "base.html" %}
+{% block content %}
+  <div class="container mt-4">
+    <h2>RSVP for {{ event.title }}</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit RSVP</button>
+    </form>
+    <a href="{% url 'event-detail' event.pk %}" class="btn btn-secondary mt-2">Back to Event</a>
+  </div>
+{% endblock %}
