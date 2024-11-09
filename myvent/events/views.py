@@ -7,6 +7,9 @@ from .models import Event, RSVP
 from .forms import EventForm, RSVPForm, EventSearchForm
 from django.db.models import Q
 
+def landing_page(request):
+    return render(request, 'landing.html')
+
 @login_required
 def create_event(request):
     if request.method == 'POST':

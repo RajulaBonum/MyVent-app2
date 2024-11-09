@@ -12,12 +12,12 @@ class Event(models.Model):
         ('webinar', 'Webinar'),
     )
 
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)  # Ensure this field is defined
     title = models.CharField(max_length=200)
     description = models.TextField()
-    location = models.CharField(max_length=255)
+    location_name = models.CharField(max_length=255)
     date = models.DateTimeField(default=timezone.now)
     max_attendees = models.PositiveIntegerField()
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, blank=True, null=True)
     organizer = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
